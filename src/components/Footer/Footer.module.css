@@ -1,0 +1,10 @@
+footer {
+    max-height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #555;
+    color: #FFF;
+    padding: 1rem;
+}
