@@ -1,12 +1,12 @@
 import { Component, useEffect, useState } from "react";
 import { articles } from '../../api/data'
 import Card from "../../components/Card";
-import './Article.module.css'
+import './Home.module.css'
 import NotFound from '../../assets/transistor-404.png'
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 
-const Article = () => {
+const Home = () => {
     const [data, setData] = useState([]) // state untuk data awal
     const [filteredData, setFilteredData] = useState([]) // state untuk data yang terfilter
     const [search, setSearch] = useState('')
@@ -81,4 +81,4 @@ const Article = () => {
     )
 }
 
-export default Article
+export default Home

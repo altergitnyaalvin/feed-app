@@ -1,7 +1,7 @@
 
 import { useLocation } from "react-router-dom"
 
-const ArticleContent = () => {
+const Article = () => {
     const { state } = useLocation()
     const { item } = state
 
@@ -18,4 +18,4 @@ const ArticleContent = () => {
     )
 }
 
-export default ArticleContent
+export default Article
