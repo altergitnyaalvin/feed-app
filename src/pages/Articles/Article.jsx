@@ -1,9 +1,10 @@
 import { Component, useEffect, useState } from "react";
-import { articles } from "../api/data";
-import Card from "../components/Card";
+import { articles } from '../../api/data'
+import Card from "../../components/Card";
 import './Article.module.css'
-import NotFound from '../assets/transistor-404.png'
-import Input from "../components/Input";
+import NotFound from '../../assets/transistor-404.png'
+import Input from "../../components/Input";
+import { Link } from "react-router-dom";
 
 const Article = () => {
     const [data, setData] = useState([]) // state untuk data awal
@@ -40,7 +41,7 @@ const Article = () => {
     return(
         <>
             <h1>Berita Hari Ini</h1>
-            <Input value={search} onChange={(e) => onSearch(e)} />
+            <Input value={search} onChange={(e) => onSearch(e)} type='text' placeholder='Cari disini...'/>
             
             {
                 search !== "" ? // Jika search query kosong atau tidak sedang melakukan pencarian di kolom search input
@@ -48,6 +49,7 @@ const Article = () => {
                         {
                             filteredData.length > 0 ? filteredData.map((item, index) => (
                                 <Card 
+                                    params={{to: `/article/${index}`, state: {item}}} // props untuk passing "to" & "state" Link
                                     key={index}
                                     author={item.author}
                                     title={item.title}
@@ -63,6 +65,7 @@ const Article = () => {
                         {
                             data.length > 0 ? data.map((item, index) => (
                                 <Card 
+                                    params={{to: `/article/${index}`, state: {item}}}
                                     key={index}
                                     author={item.author}
                                     title={item.title}
