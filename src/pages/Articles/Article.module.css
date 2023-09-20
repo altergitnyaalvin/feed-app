@@ -6,3 +6,7 @@ section {
     flex-wrap: wrap;
     max-width: 100%;
 }
+
+button {
+    color: #FFF;
+}

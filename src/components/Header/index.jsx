@@ -1,13 +1,18 @@
+import { Link } from 'react-router-dom'
 import './Header.module.css'
 
 const Header = () => {
     return(
         <header>
             <div>
-                <h3>Feed App</h3>
+                <Link to={'/'}>
+                    <h3 className='link-header'>Feed App</h3>
+                </Link>
             </div>
             <div>
-
+                <Link to={'/about'}>
+                    <span className='link-header'>About Us</span>
+                </Link>
             </div>
         </header>
     )

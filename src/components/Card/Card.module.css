@@ -4,9 +4,10 @@ article {
     padding: 0.5rem;
     margin: 0.5rem;
     max-width: 27%;
+    color: #000;
 }
 
-article > img {
+img {
     max-width: 250px;
     max-height: 250px;
 }
