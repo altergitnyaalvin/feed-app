@@ -1,6 +1,6 @@
 import './Input.module.css'
 
-const Input = ({ value, onChange, type, placeholder, name, className }) => {
+const Input = ({ value, onChange, type, placeholder, name, className, id }) => {
     return <input 
                 type={type ? type : "text"} 
                 value={value} // menyimpan hasil input dari user
@@ -8,6 +8,7 @@ const Input = ({ value, onChange, type, placeholder, name, className }) => {
                 placeholder={placeholder} 
                 name={name}
                 className={className}
+                id={id ? id : ''}
             />
 }
 

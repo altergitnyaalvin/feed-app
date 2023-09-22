@@ -8,6 +8,7 @@ import Article from './pages/Article'
 import Login from './pages/Login'
 import PrivateRoute from './layouts/PrivateRoute'
 import { AuthContext, AuthProvider } from './context/AuthContext'
+import AddArticle from './pages/AddArticle/AddArticle'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/add-article" element={<AddArticle />} />
             <Route element={<PrivateRoute />}>
               <Route path="/article/:id" element={<Article />} />
             </Route>
