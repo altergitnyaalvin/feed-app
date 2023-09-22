@@ -1,0 +1,12 @@
+.login-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}

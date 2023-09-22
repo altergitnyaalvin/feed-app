@@ -1,0 +1,11 @@
+/* .form-add-article {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 1rem;
+} */
+
+.btn-submit {
+    margin: 1em;
+    background-color: red;
+}

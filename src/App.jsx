@@ -1,25 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useContext, useState } from 'react'
 // import './App.css'
 import Layout from './layouts/Layout'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AboutUs from './pages/AboutUs/AboutUs'
-import Article from './pages/Articles/Article'
-import ArticleContent from './pages/ArticleContent/ArticleContent'
+import Home from './pages/Home'
+import Article from './pages/Article'
+import Login from './pages/Login'
+import PrivateRoute from './layouts/PrivateRoute'
+import { AuthContext, AuthProvider } from './context/AuthContext'
+import AddArticle from './pages/AddArticle/AddArticle'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Article />} />
-          <Route path="/article/:id" element={<ArticleContent />} />
-          <Route path="/about" element={<AboutUs />} />
-        </Routes>
-      </Layout>
+      <AuthProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/add-article" element={<AddArticle />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/article/:id" element={<Article />} />
+            </Route>
+          </Routes>
+        </Layout>
+      </AuthProvider>
     </BrowserRouter>
   )
 }

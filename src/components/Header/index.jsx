@@ -13,6 +13,9 @@ const Header = () => {
                 <Link to={'/about'}>
                     <span className='link-header'>About Us</span>
                 </Link>
+                <Link to={'/login'}>
+                    <span className='link-header'>Login</span>
+                </Link>
             </div>
         </header>
     )
