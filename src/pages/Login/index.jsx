@@ -20,10 +20,10 @@ const Login = () => {
     const handleFormInput = (e) => {
         const { name, value } = e.target
 
-        // handle state form change
+        // handle state form change / cara mengubah state data secara immutable
         setForm({
-            ...form,
-            [name]: value
+            ...form, // nyalin
+            [name]: value // mengubah
         })
 
         validateLogin(e)

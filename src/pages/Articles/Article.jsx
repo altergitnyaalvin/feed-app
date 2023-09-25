@@ -46,10 +46,11 @@ const Article = () => {
             {
                 search !== "" ? // Jika search query kosong atau tidak sedang melakukan pencarian di kolom search input
                     <section>
+                        {/* Melakukan looping terhadap data article yang ada */}
                         {
                             filteredData.length > 0 ? filteredData.map((item, index) => (
                                 <Card 
-                                    params={{to: `/article/${index}`, state: {item}}} // props untuk passing "to" & "state" Link
+                                    params={{to: `/article/${index}`, state: item}} // props untuk passing "to" & "state" Link
                                     key={index}
                                     author={item.author}
                                     title={item.title}
