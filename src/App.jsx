@@ -17,14 +17,16 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Layout>
+          {/* Routes -> Sebagai kumpulan Routing dalam satu aplikasi */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/add-article" element={<AddArticle />} />
-            <Route element={<PrivateRoute />}>
+            {/* <Route element={<PrivateRoute />}>
               <Route path="/article/:id" element={<Article />} />
-            </Route>
+            </Route> */}
+            <Route path="/article/:id" element={<Article />} />
           </Routes>
         </Layout>
       </AuthProvider>
