@@ -9,6 +9,8 @@ import Login from './pages/Login'
 import PrivateRoute from './layouts/PrivateRoute'
 import { AuthContext, AuthProvider } from './context/AuthContext'
 import AddArticle from './pages/AddArticle/AddArticle'
+import {Provider} from 'react-redux'
+import store from './redux/store'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+      <Provider store={store}>
         <Layout>
           {/* Routes -> Sebagai kumpulan Routing dalam satu aplikasi */}
           <Routes>
@@ -29,6 +32,7 @@ function App() {
             <Route path="/article/:id" element={<Article />} />
           </Routes>
         </Layout>
+      </Provider>
       </AuthProvider>
     </BrowserRouter>
   )

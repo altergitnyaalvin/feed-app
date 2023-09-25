@@ -10,9 +10,10 @@ const Article = () => {
     const [data, setData] = useState([]) // state untuk data awal
     const [filteredData, setFilteredData] = useState([]) // state untuk data yang terfilter
     const [search, setSearch] = useState('')
+    
 
     useEffect(() => {
-        console.log('calling useEffect()');
+        // console.log('get data from redux ', data);
         setData(articles)
         window.localStorage.setItem('article', JSON.stringify(articles)) // buat menyimpan data ke local storage
         

@@ -1,8 +1,10 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Implement RTK in react js
+[-] Menginstall library "@reduxjs/toolkit" "react-redux"
+[-] Siapin folder untuk redux
+[-] Buat konfigurasi store di folder store
+[-] Bungkus parent component dengan Provider dari "react-redux" dan passing attribute/props store
+[-] Tambah folder "slice" pada folder "redux"
+[-] Buat slice sesusai fitur, e.g. articleSlice.js
+[-] setup "name", "initialState", dan "reducers" pada createSlice()
+[-] buat masing-masing fungsi reducer
+[-] Tambahkan reducer yang dibuat ke dalam configureStore

@@ -3,14 +3,23 @@ import Input from "../../components/Input"
 import TextArea from "../../components/TextArea/TextArea"
 import Button from "../../components/Button"
 import './AddArticle.module.css'
+import { addArticle } from "../../redux/slices/articleSlice"
+import { useDispatch } from 'react-redux'
 
 const AddArticle = () => {
+    // create dispatch baru untuk trigger action & reducer
+    const dispatch = useDispatch()
     const [articleForm, setArticleForm] = useState({
+        source: {
+            id: '',
+            name: ''
+        },
         author: '',
         title: '',
         description: '',
-        urlToImage: '',
         url: '',
+        urlToImage: '',
+        publishedAt: '',
         content: ''
     })
 
@@ -20,6 +29,16 @@ const AddArticle = () => {
             ...articleForm,
             [name]: value
         })
+    }
+
+    const handleSubmit = (e) => {
+        try{
+            e.preventDefault()
+            // dispatch new data to store
+            dispatch(addArticle(articleForm))
+        } catch(e){
+            console.log('error handleSubmit', e);
+        }
     }
 
     return(
@@ -61,7 +80,7 @@ const AddArticle = () => {
                 placeholder={'Content'}
                 className='input-add-article'
             />
-            <Button className='btn-submit' text='Submit' onClick={() => {}} />
+            <Button type="submit" className='btn-submit' text='Submit' onClick={(e) => handleSubmit(e)} />
         </form>
     )
 }

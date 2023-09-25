@@ -5,15 +5,17 @@ import './Home.module.css'
 import NotFound from '../../assets/transistor-404.png'
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux'
 
 const Home = () => {
-    const [data, setData] = useState([]) // state untuk data awal
+    // const [data, setData] = useState([]) // state untuk data awal
     const [filteredData, setFilteredData] = useState([]) // state untuk data yang terfilter
     const [search, setSearch] = useState('')
+    const data = useSelector((state) =>  state.articles)
 
     useEffect(() => {
-        console.log('calling useEffect()');
-        setData(articles)
+        console.log('get data from redux', data);
+        // setData(articles)
         window.localStorage.setItem('article', JSON.stringify(articles)) // buat menyimpan data ke local storage
         
     }, []) 
