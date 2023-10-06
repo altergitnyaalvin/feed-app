@@ -6,12 +6,31 @@ import NotFound from '../../assets/transistor-404.png'
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
+import { getPosts } from "../../api";
+import { ColorRing } from "react-loader-spinner";
 
 const Home = () => {
     // const [data, setData] = useState([]) // state untuk data awal
     const [filteredData, setFilteredData] = useState([]) // state untuk data yang terfilter
     const [search, setSearch] = useState('')
     const data = useSelector((state) =>  state.articles)
+    const [posts, setPosts] = useState([])
+    const [loading, setLoading] = useState(false) // state untuk loader
+
+    // Memanggil getPosts function
+    useEffect(() => {
+        setLoading(true) // nyalain loader sebelum selesai fetch API
+        getPosts()
+            .then((response) => {
+                return response.json();
+            }) // success
+            .then((data) => {
+                // ketika mendapat response success, kita simpan responsenya di state
+                setPosts(data)
+                setLoading(false) // berhentiin loader setelah selesai fetch API
+            })
+            .catch((error) => console.log('error => ', error)) // gagal
+    }, [])
 
     useEffect(() => {
         console.log('get data from redux', data);
@@ -45,7 +64,7 @@ const Home = () => {
             <h1>Berita Hari Ini</h1>
             <Input value={search} onChange={(e) => onSearch(e)} type='text' placeholder='Cari disini...'/>
             
-            {
+            {/* {
                 search !== "" ? // Jika search query kosong atau tidak sedang melakukan pencarian di kolom search input
                     <section>
                         {
@@ -78,6 +97,26 @@ const Home = () => {
                             )) : <img src={NotFound} />
                         }
                     </section>
+            } */}
+
+            {
+                !loading ? 
+                    posts.length > 0 ? posts.map((item, index) => (
+                        <div key={index}>
+                            <h2>{item.title}</h2>
+                            <p>{item.body}</p>
+                        </div>
+                    )) : <h2>Data Kosong</h2>
+                    :
+                    <ColorRing
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="blocks-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="blocks-wrapper"
+                        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                    />
             }
         </>
     )

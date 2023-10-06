@@ -11,6 +11,8 @@ import { AuthContext, AuthProvider } from './context/AuthContext'
 import AddArticle from './pages/AddArticle/AddArticle'
 import {Provider} from 'react-redux'
 import store from './redux/store'
+import AddPost from './pages/AddPost'
+import Pokemons from './pages/Pokemons'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,6 +28,8 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/add-article" element={<AddArticle />} />
+            <Route path="/add-post" element={<AddPost />} />
+            <Route path="/pokemon" element={<Pokemons />} />
             {/* <Route element={<PrivateRoute />}>
               <Route path="/article/:id" element={<Article />} />
             </Route> */}

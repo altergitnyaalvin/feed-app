@@ -22,6 +22,7 @@ const AddArticle = () => {
         publishedAt: '',
         content: ''
     })
+    // const [articleData, setArticleData] = useState([])
 
     const handleChangeForm = (e) => {
         const { name, value } = e.target
@@ -36,6 +37,7 @@ const AddArticle = () => {
             e.preventDefault()
             // dispatch new data to store
             dispatch(addArticle(articleForm))
+
         } catch(e){
             console.log('error handleSubmit', e);
         }

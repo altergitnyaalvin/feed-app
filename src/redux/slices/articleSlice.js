@@ -3,7 +3,7 @@ import { articles } from '../../api/data'
 
 export const articleSlice = createSlice({
     name: 'article', // untuk penamaan slice
-    initialState: articles, // data awal di store
+    initialState: [], // data awal di store
     reducers: {
         addArticle(state, action){
             // fungsi menambahkan data article ke store
@@ -29,6 +29,7 @@ export const articleSlice = createSlice({
 
             // melakukan penyalinan data lama dengan data baru
             return [...state, article]
+            // state.push(article)
         },
         editArticle(){
             // fungsi mengedit data article ke store
