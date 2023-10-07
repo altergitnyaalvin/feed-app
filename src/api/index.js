@@ -1,8 +1,8 @@
 import axios from "axios"
 
 // Function untuk melakukan fetch API /posts
-const url = 'https://jsonplaceholder.typicode.com'
-const poke_url = 'https://pokeapi.co/api/v2'
+const url = process.env.URL_APP
+const poke_url = process.env.URL_POKE
 export const getPosts = () => {
     return fetch(`${url}/posts`, {
         method: 'GET',
@@ -22,12 +22,14 @@ export const getPostsWithID = (id) => {
 }
 
 export const sendPostData = (data) => {
+    const token = sessionStorage.getItem('token')
     return fetch(`${url}/posts`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // token diambil dari response setelah login dari API
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data) // paramater/data yang dikirimkan ke API 
     })
 }
 
@@ -38,6 +40,19 @@ export const fetchPokemons = () => {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
+        }
+    })
+}
+
+// call api /login
+export const fetchLogin = (data) => {
+    console.log('param login', data);
+    return axios({
+        url: `https://usman-fake-api.herokuapp.com/api/auth`,
+        method: 'POST',
+        body: {
+            "email": data.email,
+            "password": data.password
         }
     })
 }
