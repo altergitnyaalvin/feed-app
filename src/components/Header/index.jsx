@@ -20,6 +20,9 @@ const Header = () => {
                 </Link>
             </div>
             <div>
+                <Link to={'/chat-ai'}>
+                    <span className='link-header'>Chat AI</span>
+                </Link>
                 <Link to={'/about'}>
                     <span className='link-header'>About Us</span>
                 </Link>

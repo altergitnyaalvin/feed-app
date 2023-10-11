@@ -13,6 +13,7 @@ import {Provider} from 'react-redux'
 import store from './redux/store'
 import AddPost from './pages/AddPost'
 import Pokemons from './pages/Pokemons'
+import ChatAI from './pages/ChatAI'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +31,7 @@ function App() {
             <Route path="/add-article" element={<AddArticle />} />
             <Route path="/add-post" element={<AddPost />} />
             <Route path="/pokemon" element={<Pokemons />} />
+            <Route path="/chat-ai" element={<ChatAI />} />
             {/* <Route element={<PrivateRoute />}>
               <Route path="/article/:id" element={<Article />} />
             </Route> */}

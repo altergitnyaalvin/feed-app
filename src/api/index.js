@@ -3,8 +3,19 @@ import axios from "axios"
 // Function untuk melakukan fetch API /posts
 const url = process.env.URL_APP
 const poke_url = process.env.URL_POKE
+const products_url = process.env.URL_PRODUCTS // https://6523e69dea560a22a4e9019e.mockapi.io/api/v1/
+// `${products_url}/products
 export const getPosts = () => {
     return fetch(`${url}/posts`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}
+
+export const getProducts = () => {
+    return axios(`${products_url}/products`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

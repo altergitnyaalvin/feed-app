@@ -6,7 +6,7 @@ import NotFound from '../../assets/transistor-404.png'
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
-import { getPosts } from "../../api";
+import { getPosts, getProducts } from "../../api";
 import { ColorRing } from "react-loader-spinner";
 
 const Home = () => {
@@ -31,6 +31,12 @@ const Home = () => {
             })
             .catch((error) => console.log('error => ', error)) // gagal
     }, [])
+
+    useEffect(() => {
+        getProducts()
+            .then(res =>console.log('products res ', res.data)) // log response API /products
+            .catch((error) => console.log('error', error)) //log error dari API /products
+    })
 
     useEffect(() => {
         console.log('get data from redux', data);

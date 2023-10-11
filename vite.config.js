@@ -15,7 +15,8 @@ export default defineConfig(({ command, mode}) => {
     define: {
       'process.env.URL_APP': JSON.stringify(env.URL_APP),
       'process.env.URL_POKE': JSON.stringify(env.URL_POKE),
-      'process.env.OPEN_AI_KEY': JSON.stringify(env.OPEN_AI_KEY)
+      'process.env.OPEN_AI_KEY': JSON.stringify(env.OPEN_AI_KEY),
+      'process.env.URL_PRODUCTS': JSON.stringify(env.URL_PRODUCTS),
 
       // case jika tidak ada boolean value di env
       // 'process.env': JSON.stringify(env)
