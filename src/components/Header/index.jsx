@@ -23,6 +23,9 @@ const Header = () => {
                 <Link to={'/about'}>
                     <span className='link-header'>About Us</span>
                 </Link>
+                <Link to={'/chat-ai'}>
+                    <span className='link-header'>Chat AI</span>
+                </Link>
                 {
                     !isLoggedIn ? 
                         <Link to={'/login'}>
