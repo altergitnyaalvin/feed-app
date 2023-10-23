@@ -14,6 +14,7 @@ import store from './redux/store'
 import AddPost from './pages/AddPost'
 import Pokemons from './pages/Pokemons'
 import ChatAI from './pages/ChatAI'
+import UploadImage from './pages/UploadImage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,6 +33,7 @@ function App() {
             <Route path="/add-post" element={<AddPost />} />
             <Route path="/pokemon" element={<Pokemons />} />
             <Route path="/chat-ai" element={<ChatAI />} />
+            <Route path="/upload" element={<UploadImage />} />
             {/* <Route element={<PrivateRoute />}>
               <Route path="/article/:id" element={<Article />} />
             </Route> */}

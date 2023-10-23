@@ -12,7 +12,7 @@ const ChatAI = () => {
     const [image, setImage] = useState("")
 
     const openai = new OpenAI({
-        apiKey: process.env["OPENAI_API_KEY"], // defaults to process.env["OPENAI_API_KEY"]
+        apiKey: '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', // defaults to process.env["OPENAI_API_KEY"]
         dangerouslyAllowBrowser: true
     });
 
@@ -20,14 +20,20 @@ const ChatAI = () => {
         e.preventDefault()
         // TODO: handle openai completion
         setLoading(true)
-        const res = await openai.chat.completions.create({
+        const res = await openai.completions.create({
             // prompt: command, // parameter untuk send chat message
-            // model: 'text-davinci-003',
-            messages: [{ role: "system", content: command }],
-            model: "gpt-3.5-turbo",
-
+            model: 'gpt-3.5-turbo-instruct',
+            prompt : "Rangkuman dari artikel berdasarkan url berikut dalam 100 kata tentang penggunaannya : " + command,
+            // messages: [{ role: "system", content: command }],
+            // model: "gpt-3.5-turbo",
+            temperature: 1,
+            // max_tokens: 1000,
+            top_p: 1.0,
+            frequency_penalty: 2.0,
+            presence_penalty: 2.0
+            
         })
-        setResult(res.choices[0].message.content)
+        setResult(res.choices[0].text)
         console.log('result ', res);
         setLoading(false)
     }
